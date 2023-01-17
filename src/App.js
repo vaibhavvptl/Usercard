@@ -1,4 +1,3 @@
-// import './App.css';
 import data from "./userData.json"
 import UserInfo from "./UserInfo"
 
