@@ -1,3 +1,3 @@
-#User info card
+# User info card
 
 using Tailwindcss
