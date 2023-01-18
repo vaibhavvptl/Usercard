@@ -12,4 +12,5 @@ where N is input entered by user
 
 ## solution
 
-used two counter varible to solve the problem
+used two counter varible named counterThree and counterFive
+work for both negetive values and postive values
