@@ -3,6 +3,9 @@ const fizzBuzz = (n) => {
 		counterFive = 0,
 		iterator = 0
 
+	//setting n for edge cases like : nth value of input
+	n = n > 0 ? n + 1 : n - 1
+
 	//this will loop intil iterator is not equal to our input n
 	while (iterator !== n) {
 		//if both counterThree and counterFive are at 3 and 5 respectively then num divisible by 15
@@ -32,4 +35,4 @@ const fizzBuzz = (n) => {
 	}
 }
 
-fizzBuzz(-100)
+fizzBuzz(100)
