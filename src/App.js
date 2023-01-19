@@ -1,52 +1,63 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 // import "./App.css"
 import Counter from "./Counter"
 import Total from "./Total"
 
 function App() {
-	const [data, setData] = useState([
-		{ id: 1, value: 0 },
-		{ id: 2, value: 0 },
-		{ id: 3, value: 0 },
-		{ id: 4, value: 0 },
-	])
+	const [counterData, setCounterData] = useState([])
+
+	//storing data in session to keep data
+	useEffect(() => {
+		//if data avalibale
+		const sessionCounterData = sessionStorage.getItem("counterData")
+		//if counter data present then set that data to counter
+		if (sessionCounterData) setCounterData(JSON.parse(sessionCounterData))
+		//if not counter data present then set the data to staring values
+		else {
+			setCounterData([
+				{ id: 1, value: 0 },
+				{ id: 2, value: 0 },
+				{ id: 3, value: 0 },
+				{ id: 4, value: 0 },
+			])
+		}
+	}, [])
+
+	const onIncrement = ({ value, id }) => {
+		setCounterData(
+			counterData.map((i) => (i.id === id ? { ...i, value: value + 1 } : i))
+		)
+	}
+	const onDecrement = ({ value, id }) => {
+		setCounterData(
+			counterData.map((i) => (i.id === id ? { ...i, value: value - 1 } : i))
+		)
+	}
+
+	const onChange = ({ value, id }) => {
+		setCounterData(counterData.map((i) => (i.id === id ? { ...i, value } : i)))
+		// storing data to session
+		sessionStorage.setItem("counterData", JSON.stringify(counterData))
+	}
 
 	let total = 0
 	return (
-		<div>
-			{data.map((counter) => {
+		<div className="app">
+			{counterData.map((counter) => {
 				//calculating total
 				total += counter.value
 
-				//decrement function
-				const onDecrement = (value) => {
-					setData(
-						data.map((i) =>
-							i.id === counter.id ? { ...i, value: value - 1 } : i
-						)
-					)
-				}
-
-				//increament funtion
-				const onIncrement = (value) => {
-					setData(
-						data.map((i) =>
-							i.id === counter.id ? { ...i, value: value + 1 } : i
-						)
-					)
-				}
-				const onChange = (value) => {
-					// let newData = [...data]
-					// newData[id - 1].value = value
-					setData(data.map((i) => (i.id === counter.id ? { ...i, value } : i)))
-				}
-				//returnning counter component to map function
 				return (
-					<Counter key={counter.id} value={counter.value} onChange={onChange} />
+					<Counter
+						key={counter.id}
+						value={counter.value}
+						onChange={onChange}
+						id={counter.id}
+					/>
 				)
 			})}
 
-			{/* total component for total sum of counters */}
+			{/* total component for total sum of counters value */}
 			<Total value={total} />
 		</div>
 	)

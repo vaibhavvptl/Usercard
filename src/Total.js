@@ -1,9 +1,9 @@
-import React from "react"
-
 const Total = (props) => {
 	return (
-		<div className="total">
-			<strong>Total : </strong> {props.value}
+		<div className="total ">
+			<h2>
+				<strong>Total : </strong> {props.value}
+			</h2>
 		</div>
 	)
 }

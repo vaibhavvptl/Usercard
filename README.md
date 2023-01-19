@@ -13,3 +13,7 @@ Then do the following :
 remove the onIncrement and onDecrement props from the (new) Countercomponent
 add a single onChange callback prop that takes a single integer parameter — the new value for the counter.
 Ensure all Counter components still update and function independently after this change.
+
+## solution
+
+implemented session storage and can not go to negetive value (disabled the minus button on zero value of counter )
