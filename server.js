@@ -13,8 +13,6 @@ const urls = [
 	"https://jsonplaceholder.typicode.com/photos/800",
 ]
 
-//200,404,404,200,200,200,200,200,404,200,200,404
-
 const urlLogger = () => {
 	let activeLinks = []
 	let inactiveLinks = []

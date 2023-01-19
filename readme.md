@@ -19,4 +19,4 @@ const urls = [
 
 ## solution
 
-### used Promised.all()
+used Promised.all() to solve the problem
