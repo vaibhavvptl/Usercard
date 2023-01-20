@@ -5,7 +5,7 @@ const swap = (first, second, arr) => {
 	// arr[first] = arr[second]
 	// arr[second] = temp
 
-	//withoot using third variable
+	//without using third variable
 	arr[first] = arr[first] + arr[second]
 	arr[second] = arr[first] - arr[second]
 	arr[first] = arr[first] - arr[second]
