@@ -21,5 +21,5 @@ const sortArray = (arrToSort) => {
 	return arrToSort
 }
 
-const arrayForSorting = [-12, -1, 7, 5, -3, -6]
+const arrayForSorting = [-12, 11, -13, -5, 6, -7, 5, -3, -6]
 console.log(sortArray(arrayForSorting))
